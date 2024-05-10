@@ -48,8 +48,14 @@ int main(int argc, char **argv) {
     printf(" - magic \"%.4s\"\n", header->magic);
     printf(" - flags: 0x%.8x\n", header->flags);
     printf(" - encoding: 0x%.8x\n", header->encoding);
+    printf("    - [%s] RGB\n",
+           header->encoding == SEIF_ENCODING_RGB ? "X" : " ");
+    printf("    - [%s] RGBA\n",
+           header->encoding == SEIF_ENCODING_RGBA ? "X" : " ");
+    printf("    - [%s] ARGB\n",
+           header->encoding == SEIF_ENCODING_ARGB ? "X" : " ");
     printf(" - [META]:\n");
-    printf("    - signature: %.8s\n", header->meta.signature);
+    printf("    - signature: \"%.8s\"\n", header->meta.signature);
     printf("    - width: %d\n", header->meta.width);
     printf("    - height: %d\n", header->meta.height);
     printf(" - chunk_count: %d\n", header->chunk_count);
